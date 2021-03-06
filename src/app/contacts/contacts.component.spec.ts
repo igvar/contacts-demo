@@ -1,4 +1,8 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ContactsComponent } from './contacts.component';
 
@@ -8,7 +12,9 @@ describe('ContactsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContactsComponent ]
+      declarations: [ ContactsComponent ],
+      providers: [HttpClientTestingModule, HttpClient, HttpHandler],
+      imports: [RouterTestingModule],
     })
     .compileComponents();
   });

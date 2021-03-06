@@ -29,4 +29,18 @@ export class ContactsService {
     this.contacts.splice(index, 1);
   }
 
+  removeAllContacts(){
+    this.contacts = [];
+  }
+
+  updateContact(index: number, contact: Contact){
+    this.contacts.forEach(
+      (elem, i)=> {
+        if(index === i){
+          this.contacts[i] = contact;
+        }
+      }
+    )
+  }
+
 }

@@ -11,6 +11,10 @@ import { ContactsService } from './contacts.service';
 })
 export class ContactsComponent implements OnInit {
 
+  isEdit: boolean = true;
+  indexToEdit: number = 0;
+  showAlert:boolean = false;
+
   firstName:string = "";
   lastName:string = "";
   phoneNumber:string = "";
@@ -27,6 +31,17 @@ export class ContactsComponent implements OnInit {
     this.router.navigate(['/contacts/add']);
   }
 
+  goToEdit(index: number){
+
+    localStorage.setItem('isEdit', 'true');
+    localStorage.setItem('indexToEdit', index.toString());
+
+    this.isEdit = true;
+    this.indexToEdit = index;
+
+    this.router.navigate(['/contacts/add']);
+  }
+
   addContact(){
     this.contactService.addContact(
       {
@@ -35,5 +50,12 @@ export class ContactsComponent implements OnInit {
         phoneNumber: this.phoneNumber
       }
     )
+    this.showAlert = true;
   }
+
+  removeContact(index: number){
+    this.contactService.removeContact(index);
+    this.showAlert = true;
+  }
+
 }
