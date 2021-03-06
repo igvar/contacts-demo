@@ -24,8 +24,8 @@
             <input type="text" class="form-control" placeholder="email" name="email" type="text" [(ngModel)]="contact.email">
         </div>
     </div>
-    <button type="button" class="btn btn-outline-secondary float-left" (click)="goToContacts()" >Go back</button>
+    <button type="button" id="goBack" class="btn btn-outline-secondary float-left" (click)="goToContacts()" >Go back</button>
 
-    <button type="submit" *ngIf="!isEdit" class="btn btn-primary form-group float-right" (click)="addContact()">Add</button>
-    <button type="submit" *ngIf="isEdit" class="btn btn-primary form-group float-right" (click)="updateContact()">Udate</button>
+    <button type="submit" id="submitContact" *ngIf="!isEdit" class="btn btn-primary form-group float-right" (click)="addContact()">Add</button>
+    <button type="submit" id="editContact" *ngIf="isEdit" class="btn btn-primary form-group float-right" (click)="updateContact()">Udate</button>
   </form>
