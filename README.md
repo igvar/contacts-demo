@@ -1,3 +1,6 @@
+## Dependency installation
+
+run npm install to download all the dependencies
 
 ## Development server
 
